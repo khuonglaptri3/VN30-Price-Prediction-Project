@@ -13,7 +13,7 @@ from sklearn.metrics import silhouette_score
 from sklearn.decomposition import PCA
 
 # === 1. Đọc dữ liệu ===
-path_data = r"F:\KL\data2.xlsx"
+path_data = r"F:\VN30-Price-Prediction-Project\data2.xlsx"
 df = pd.read_excel(path_data)
 print(f" Đã đọc dữ liệu: {df.shape[0]} dòng, {df.shape[1]} cột")
 
@@ -83,7 +83,7 @@ fig.update_layout(legend_title_text='Cụm cổ phiếu', title_x=0.5)
 fig.show()
 
 # === 9. Lưu file Excel ===
-out_path = r"F:\KL\K-mean.xlsx"
+out_path = r"F:\VN30-Price-Prediction-Project\K-mean.xlsx"
 cluster_df.to_excel(out_path, index=False)
 print(f" Đã lưu kết quả tại: {out_path}")
 
@@ -91,3 +91,4 @@ print(f" Đã lưu kết quả tại: {out_path}")
 for c in range(best_k):
     members = cluster_df[cluster_df['Cluster']==c]['Cổ phiếu'].tolist()
     print(f"\n🔹 Cụm {c} ({len(members)} cổ phiếu): {', '.join(members)}")
+    

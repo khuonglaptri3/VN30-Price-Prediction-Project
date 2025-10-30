@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
 # === 1. Đọc dữ liệu ===
-path_data = r"F:\KL\data2.xlsx"   # dùng data2 có cả cột Ngày và VN30_Lần cuối
+path_data = r"F:\VN30-Price-Prediction-Project\data2.xlsx"   # dùng data2 có cả cột Ngày và VN30_Lần cuối
 df = pd.read_excel(path_data)
 print(f" Đã đọc dữ liệu: {df.shape[0]} dòng, {df.shape[1]} cột")
 
@@ -61,7 +61,7 @@ if date_col in df.columns:
 pca_df[vn30_col] = df.loc[pca_df.index, vn30_col].values
 
 # === 9. Lưu kết quả ra Excel ===
-out_path = r"F:\KL\PCA.xlsx"
+out_path = r"F:\VN30-Price-Prediction-Project\PCA.xlsx"
 pca_df.to_excel(out_path, index=False)
 print(f" Đã lưu kết quả PCA tại: {out_path}")
 print(f"   File gồm {pca_df.shape[1]} cột (bao gồm {n_components} thành phần chính + Ngày + VN30_Lần cuối).")

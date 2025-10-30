@@ -13,7 +13,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # === 1. Đọc dữ liệu gốc ===
-path = r"F:\KL\data1.xlsx"
+path = r"F:\VN30-Price-Prediction-Project\data1.xlsx"
 df = pd.read_excel(path)
 print(f"✅ Đã đọc dữ liệu: {df.shape[0]} dòng, {df.shape[1]} cột")
 
@@ -111,30 +111,6 @@ fig2.update_layout(
 )
 fig2.show()
 
-# === 6. Heatmap toàn bộ ma trận tương quan ===
-plt.figure(figsize=(14, 10))
-sns.heatmap(corr_matrix, cmap="coolwarm", center=0, cbar_kws={'shrink': 0.6})
-plt.title(" Ma trận tương quan giữa tất cả các biến")
-plt.xticks(rotation=90, fontsize=7)
-plt.yticks(fontsize=7)
-plt.tight_layout()
-plt.show()
-
-# === 7. Heatmap con cho nhóm biến tương quan mạnh ===
-top_features = filtered_corr.index.tolist()
-if len(top_features) > 1:
-    max_show = min(50, len(top_features))  # Hiển thị tối đa 50 biến
-    show_features = top_features[:max_show]
-    plt.figure(figsize=(16, 14))
-    sns.heatmap(corr_matrix.loc[show_features, show_features],
-                annot=False, fmt=".2f", cmap="RdBu_r", center=0,
-                vmin=-1, vmax=1, cbar_kws={'shrink':0.6})
-    plt.title(f"🔥 Ma trận con giữa các biến có |r| ≥ 0.1 ({len(show_features)} biến)")
-    plt.xticks(rotation=90, fontsize=6)
-    plt.yticks(fontsize=6)
-    plt.tight_layout()
-    plt.show()
-
 # === 8. Lưu dữ liệu các biến có tương quan |r| ≥ 0.1 ===
 selected_cols = list(set(top_features + [vn30_col]))
 data_filtered = numeric_df[selected_cols].copy()
@@ -147,7 +123,7 @@ if date_cols:
 else:
     print(" Không tìm thấy cột 'Ngày' hoặc 'Date' trong dữ liệu.")
 
-out_path = r"F:\KL\data2.xlsx"
+out_path = r"F:\VN30-Price-Prediction-Project\data2.xlsx"
 data_filtered.to_excel(out_path, index=False)
 print(f"\n Đã lưu dữ liệu các biến có |r| ≥ 0.1 vào: {out_path}")
 print(f" Số biến được giữ lại: {len(selected_cols)} (kèm {len(date_cols)} cột thời gian nếu có)")

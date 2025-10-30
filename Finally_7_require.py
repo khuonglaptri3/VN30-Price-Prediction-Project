@@ -18,7 +18,7 @@ from tensorflow.keras import layers, models, callbacks
 # -----------------------------
 # 1 LOAD DATA & BASIC CLEAN
 # -----------------------------
-path = r"F:\KL\PCA.xlsx"
+path = r"F:\VN30-Price-Prediction-Project\PCA.xlsx"
 df = pd.read_excel(path)
 
 df['Ngày'] = pd.to_datetime(df['Ngày'])
