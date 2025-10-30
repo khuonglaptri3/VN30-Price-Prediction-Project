@@ -1,11 +1,4 @@
 
-
-###  Đồ án cuối kỳ - Đại học Sư phạm Kỹ thuật TP.HCM
-
----
-
-##  Giới thiệu
-
 Dự án này nhằm **phân tích và dự báo giá trị "VN30_Lần cuối"** trong bộ dữ liệu PCA, thông qua việc kết hợp **các mô hình hồi quy truyền thống, Machine Learning, Deep Learning và mô hình chuỗi thời gian ARDL**.  
 Mục tiêu là xác định **mô hình dự báo hiệu quả nhất** dựa trên các chỉ tiêu RMSE, MAE, và MAPE, đồng thời trực quan hóa kết quả để hỗ trợ đánh giá và ra quyết định.
 
